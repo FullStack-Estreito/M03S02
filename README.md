@@ -2,6 +2,14 @@
 
 Construção de uma aplicação Back-End para revisão do módulo de .Net
 
+# Objetivo
+
+Efetuar o passo a passo para construção de um projeto que vai receber POST, PUT, DELETE e GET.
+O projeto vai conter uma comunicação com o banco de dados utilizando o SQL Server utilizando o Entity Framework Core.
+Vamos utilizar o AutoMapper para efetuar o mapeamento do DTO para MODEL e vice versa.
+Vamos utilizar o System.Linq e Lambda.
+
+
 ### Visual Studio
 
 Abra o visual studio e selecione a opção Criar um novo Projeto
@@ -28,6 +36,38 @@ Configuração do projeto
 Criar o projeto
 
 ![Alt text](/images/image-7.png)
+
+#### Pacote nugets usados no projeto
+
+<details>
+    <summary>AutoMapper</summary>
+    <p>Link <a href="https://www.nuget.org/packages/automapper/">Link</a></p>
+    <p>dotnet add package AutoMapper --version 12.0.1</p>
+</details>
+
+<details>
+    <summary>Microsoft.EntityFrameworkCore</summary>
+    <p><a href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/7.0.9">Link</a></p>
+    <p>dotnet add package Microsoft.EntityFrameworkCore --version 7.0.9</p>
+</details>
+
+<details>
+    <summary>Microsoft.EntityFrameworkCore.Design</summary>
+    <p><a href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Design/7.0.9">Link</a></p>
+    <p>dotnet add package Microsoft.EntityFrameworkCore.Design --version 7.0.9</p>
+</details>
+
+<details>
+    <summary>Microsoft.EntityFrameworkCore.SqlServer</summary>
+    <p><a href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/7.0.9">Link</a></p>
+    <p>dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 7.0.9</p>
+</details>
+
+<details>
+    <summary>Microsoft.EntityFrameworkCore.Tools</summary>
+    <p><a href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools/7.0.9">Link</a></p>
+    <p>dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.9</p>
+</details>
 
 ### VS Code
 
