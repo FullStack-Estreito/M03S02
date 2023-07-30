@@ -31,6 +31,8 @@ Criar o projeto
 
 ### VS Code
 
+Add conteudo do vs code
+
 # Comandos git 
 
 ## Branches
