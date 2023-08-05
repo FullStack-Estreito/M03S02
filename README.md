@@ -1,43 +1,77 @@
-# M03S02
+# **M03S02**
 
 Construção de uma aplicação Back-End para revisão do módulo de .Net
 
-# Objetivo
+# **Objetivo**
 
 Efetuar o passo a passo para construção de um projeto que vai receber POST, PUT, DELETE e GET.
 O projeto vai conter uma comunicação com o banco de dados utilizando o SQL Server utilizando o Entity Framework Core.
 Vamos utilizar o AutoMapper para efetuar o mapeamento do DTO para MODEL e vice versa.
 Vamos utilizar o System.Linq e Lambda.
 
+# **Figma**
 
-### Visual Studio
+Conforme alinhamento sobre o projeto com o professor Robert Santos vamos utilizar o figma de exemplo para criação da solução da API
+
+[Figma](https://www.figma.com/file/3aCPEh95gamhTI38RB1B38/App?type=design&node-id=1-43&mode=design&t=xfkBcMCqWbf0d7RE-0)
+
+# **Visual Studio**
 
 Abra o visual studio e selecione a opção Criar um novo Projeto
 
-![Alt text](/images/image-3.png)
+![Alt text](/images/image3.png)
 
 selecione o template API chamada ASP.NET CORE WEB API
 
-![Alt text](/images/image-4.png)
+![Alt text](/images/image4.png)
 
 Seleciona o diretório, mude o nome da solucão e mude o nome do projeto
 
 Ex.
-1. Diretório  C:\<SeuRepo>
-2. Nome da solução PrimeiroSolucao 
-3. Nome do projeto PrimeiroSolucao.API 
+1. Diretório  `C:\<SeuRepo>`
+2. Nome da solução `FichaCadastroSln` 
+3. Nome do projeto `FichaCadastroAPI` 
 
-![Alt text](/images/image-5.png)
+![Alt text](/images/image5.png)
 
 Configuração do projeto
 
-![Alt text](/images/image-6.png)
+![Alt text](/images/image6.png)
 
 Criar o projeto
 
-![Alt text](/images/image-7.png)
+![Alt text](/images/image7.png)
 
-#### Pacote nugets usados no projeto
+# **VS Code**
+
+Criar uma `solução` e um `projeto` tipo api pelo VS CODE
+
+## Passo 1: Criando uma pasta chamada `fichaca-dastro` e acessar o diretório
+
+Abra o terminal (ou prompt de comando) no local que fica seus repositórios e execute os comandos.
+
+```bash
+mkdir ficha-cadastro
+cd ficha-cadastro
+```
+
+## Passo 2: Criando a `Solução` e o `Projeto`
+
+Dentro do terminal aberto execute os comandos
+
+Comando                                             | Detalhe
+| :---                                              | :---
+dotnet new sln -n [NomeSln]                         | Cria um arquivo .sln para referenciar os projetos 
+dotnet new webapi -n [NomeApi]                      | Cria uma pasta (folder) e adiciona os arquivos do projeto web api
+dotnet sln [NomeSln] add [FolderNomeApi]/[NomeApi]  | Referencia (coloca o caminho da pasta do projeto) o projeto (.csproj) dentro da solução (.sln)
+
+```bash
+dotnet new sln -n FichaCadastroSln
+dotnet new webapi -n FichaCadastroAPI
+dotnet sln FichaCadastroSln.sln add FichaCadastroAPI/FichaCadastroAPI.csproj
+```
+
+# **Pacote nugets usados no projeto**
 
 <details>
     <summary>AutoMapper</summary>
@@ -69,11 +103,10 @@ Criar o projeto
     <p>dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.9</p>
 </details>
 
-### VS Code
+<br/>
 
-Add conteudo do vs code
 
-# Comandos git 
+# **Comandos git** 
 
 ## Branches
 
@@ -102,45 +135,84 @@ git fetch   | Obtém informações atualizadas do repositório remoto sem incorp
 git pull    | Atualiza o repositório local com as alterações do repositório remoto
 git push    | Envie os commits locais para o repositório remoto
 
-# Merge e Rebase:
+## Merge e Rebase:
 
 Comando                      | Detalhe
 | :---                       | :---
 git merge  <nome-da-branch>  | Faz a fusão de uma branch na branch atual
 git rebase <nome-da-branch>  | Reaplica commits em cima de outra branch
 
-## O projeto
+# **O projeto**
 
-Após baixar o projeto, você pode abrir com o `Visual Studio` ou com o `VS Code`.
-<br>
+Após baixar o projeto, você pode abrir com o `Visual Studio` ou `VS Code`.
+
 As tecnologias utilizadas:
+
 * .Net com C#
 * SQL Server
 
-
 # **Comandos utilizados**
-### Visual Studio
+
+## Visual Studio
 
 * Selecion o Tools (Ferramenta) 
 
-![Alt text](/images/image.png)
+![Alt text](/images/image8.png)
 
 * Depois entre na opção Package Manager Console
 
-![Alt text](/images/image-1.png)
+![Alt text](/images/image1.png)
 
 * Será aberto um terminal para executar os comandos
 
-![Alt text](/images/image-2.png)
+![Alt text](/images/image2.png)
 
 
 * Add-Migration InitialCreate
 * Update-Database
 
-### VS Code
+## VS Code
 
-#### No `VS Code` pode ser necessário instalar o EF: dotnet tool install --global dotnet-ef
+### No `VS Code` pode ser necessário instalar o EF 
+
+Comando caso precisei instalar `dotnet tool install --global dotnet-ef`
+
+```
+dotnet ef migrations add InitialCreate 
+dotnet ef database update
+```
+
+## Imagem SQL Server
+
+Imagem criada no docker-compose.yaml do SQL Server
 
 
-* dotnet ef migrations add InitialCreate 
-* dotnet ef database update
+## Instruções para configurar o SQL Server usando Docker Compose
+
+1. Certifique-se de ter o Docker instalado no seu sistema.
+
+2. Navegue até o diretório onde o arquivo `docker-compose.yml` está localizado.
+
+3. Abra o terminal na pasta e execute o seguinte comando para iniciar o SQL Server:
+
+Comando                 | Detalhe
+| :---                  | :---
+docker-compose up       | Inicia o contanier e os serviços ficaram em execução no terminal
+docker-compose up -d    | Inicia o contanier e os serviços ficaram em backgraoud (segundo plano) em execução
+ocker-compose stop      | Para a execução do container do docker
+docker-compose down     | Para e remove o container do docker
+docker-compose ps       | Lista todos container's em execução
+docker-compose ps -a    | Lista todos container's parados ou em execução
+
+
+## Acessando
+
+Abrir o SQL Manager para acessar o SQL Server configurado da imagem
+
+![Alt text](/images/image9.png)
+
+
+- Server name: `localhost,1433`
+    - Válido se você estiver executando o Docker Desktop diretamente no macOS, onde o contêiner é acessível como localhost.
+- Server name: `host.docker.internal,1433`
+    - Quando estiver usando um ambiente de máquina virtual ou WSL (Windows Subsystem for Linux) para executar o Docker no macOS.
