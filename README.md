@@ -110,19 +110,19 @@ dotnet sln FichaCadastroSln.sln add FichaCadastroAPI/FichaCadastroAPI.csproj
 
 ## Branches
 
-Comando                          | Detalhe
-| :---                           | :---
-git branch                       | Lista as branches locais
-git branch <nome-da-branch>      | Cria uma nova branch
-git checkout <nome-da-branch>    | Muda para a branch especificada
-git checkout -b <nome-da-branch> | Cria e muda para uma nova branch
+Comando                                     | Detalhe
+| :---                                      | :---
+git branch                                  | Lista as branches locais
+git branch `feature\nome-da-branch`         | Cria uma nova branch
+git checkout `feature\nome-da-branch`       | Muda para a branch especificada
+git checkout -b `feature\nome-da-branch`    | Cria e muda para uma nova branch
 
 ## Commits
 
 Comando                               | Detalhe
 | :---                                | :---
 git status                            | Mostra o estado atual das mudanças no diretório de trabalho
-git add <arquivo>                     | Adiciona um arquivo específico para a área
+git add `exemplo.pdf`                 | Adiciona um arquivo específico para a área
 git add . ou git add -A               | Adiciona todos os arquivos modificados para a área 
 git commit -m "Mensagem do commit"    | Cria um novo commit com as mudanças na área
 git commit -a -m "Mensagem do commit" | Adiciona automaticamente todas as alterações conhecidas ao índice e cria um commit
@@ -135,12 +135,12 @@ git fetch   | Obtém informações atualizadas do repositório remoto sem incorp
 git pull    | Atualiza o repositório local com as alterações do repositório remoto
 git push    | Envie os commits locais para o repositório remoto
 
-## Merge e Rebase:
+## Merge e Rebase
 
-Comando                      | Detalhe
-| :---                       | :---
-git merge  <nome-da-branch>  | Faz a fusão de uma branch na branch atual
-git rebase <nome-da-branch>  | Reaplica commits em cima de outra branch
+Comando                                 | Detalhe
+| :---                                  | :---
+git merge  `origin/branch` ou `branch`  | Faz a fusão de uma branch na branch atual
+git rebase `origin/branch` ou `branch`  | Reaplica commits em cima de outra branch
 
 # **O projeto**
 
