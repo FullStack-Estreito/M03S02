@@ -46,13 +46,13 @@ Criar o projeto
 
 Criar uma `solução` e um `projeto` tipo api pelo VS CODE
 
-## Passo 1: Criando uma pasta chamada `fichaca-dastro` e acessar o diretório
+## Passo 1: Criando uma pasta chamada `FichaCadastroSln` e acessar o diretório
 
 Abra o terminal (ou prompt de comando) no local que fica seus repositórios e execute os comandos.
 
 ```bash
-mkdir ficha-cadastro
-cd ficha-cadastro
+mkdir FichaCadastroSln
+cd FichaCadastroSln
 ```
 
 ## Passo 2: Criando a `Solução` e o `Projeto`
@@ -167,9 +167,10 @@ As tecnologias utilizadas:
 
 ![Alt text](/images/image2.png)
 
-
-* Add-Migration InitialCreate
-* Update-Database
+```
+Add-Migration InitialCreate
+Update-Database
+```
 
 ## VS Code
 
