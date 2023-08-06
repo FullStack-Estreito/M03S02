@@ -80,6 +80,12 @@ dotnet sln FichaCadastroSln.sln add FichaCadastroAPI/FichaCadastroAPI.csproj
 </details>
 
 <details>
+    <summary>AutoMapper.Extensions.Microsoft.DependencyInjection</summary>
+    <p><a href="https://www.nuget.org/packages/AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1">Link</a></p>
+    <p>dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection --version 12.0.1</p>
+</details>
+
+<details>
     <summary>Microsoft.EntityFrameworkCore</summary>
     <p><a href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/7.0.9">Link</a></p>
     <p>dotnet add package Microsoft.EntityFrameworkCore --version 7.0.9</p>
@@ -102,6 +108,7 @@ dotnet sln FichaCadastroSln.sln add FichaCadastroAPI/FichaCadastroAPI.csproj
     <p><a href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools/7.0.9">Link</a></p>
     <p>dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.9</p>
 </details>
+
 
 <br/>
 
