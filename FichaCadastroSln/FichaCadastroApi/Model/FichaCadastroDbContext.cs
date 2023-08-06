@@ -14,12 +14,22 @@ namespace FichaCadastroApi.Model
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<DetalheModel>().HasOne(e => e.Ficha)
+            modelBuilder.Entity<DetalheModel>()
+                        .HasOne(e => e.Ficha)
                         .WithMany(x => x.Detalhes)
                         .Metadata
                         .DeleteBehavior = DeleteBehavior.Restrict;
 
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<DetalheModel>()
+                        .Property(p => p.DataCadastro)
+                        .HasDefaultValueSql("GETDATE()");
+
+
+            modelBuilder.Entity<FichaModel>()
+                        .Property(p => p.DataCadastro)
+                        .HasDefaultValueSql("GETDATE()");
+
+          base.OnModelCreating(modelBuilder);
         }
     }
 }

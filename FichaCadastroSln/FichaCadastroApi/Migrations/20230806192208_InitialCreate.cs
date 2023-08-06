@@ -17,10 +17,10 @@ namespace FichaCadastroApi.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Nome = table.Column<string>(type: "VARCHAR(250)", maxLength: 250, nullable: false),
                     Email = table.Column<string>(type: "VARCHAR(100)", maxLength: 100, nullable: false),
-                    DataNascimento = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DataNascimento = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()")
                 },
                 constraints: table =>
                 {
@@ -33,11 +33,11 @@ namespace FichaCadastroApi.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Feedback = table.Column<string>(type: "VARCHAR(500)", maxLength: 500, nullable: false),
                     Nota = table.Column<int>(type: "int", nullable: false),
                     Ativado = table.Column<bool>(type: "bit", nullable: false),
-                    FichaId = table.Column<int>(type: "int", nullable: false)
+                    FichaId = table.Column<int>(type: "int", nullable: false),
+                    DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()")
                 },
                 constraints: table =>
                 {

@@ -1,18 +1,14 @@
-﻿using FichaCadastroApi.Enumerators;
+﻿using FichaCadastroApi.Base;
+using FichaCadastroApi.Enumerators;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FichaCadastroApi.Model
 {
     [Table("Detalhe")]
-    public class DetalheModel
+    public class DetalheModel : RelacionalBase
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
-        [Required]
-        public DateTime DataCadastro { get; set; }
+       
 
         [Column(TypeName = "VARCHAR"), Required, StringLength(500)]
         public string? Feedback { get; set; }

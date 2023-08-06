@@ -1,18 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FichaCadastroApi.Base;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FichaCadastroApi.Model
 {
     [Table("Ficha")]
-    public class FichaModel
+    public class FichaModel : RelacionalBase
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
-        [Required]
-        public DateTime DataCadastro { get; set; }
-
         [Column(TypeName = "VARCHAR"), Required, StringLength(250)]
         public string Nome { get; set; }
 

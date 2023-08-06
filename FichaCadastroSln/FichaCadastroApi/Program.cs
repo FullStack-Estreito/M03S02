@@ -20,6 +20,7 @@ string connectionString = "Server=localhost;Database=FichaCadastro;Trusted_Conne
 
 builder.Services.AddDbContext<FichaCadastroDbContext>(options => options.UseSqlServer(connectionString));
 
+builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 
