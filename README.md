@@ -46,13 +46,13 @@ Criar o projeto
 
 Criar uma `solução` e um `projeto` tipo api pelo VS CODE
 
-## Passo 1: Criando uma pasta chamada `fichaca-dastro` e acessar o diretório
+## Passo 1: Criando uma pasta chamada `FichaCadastroSln` e acessar o diretório
 
 Abra o terminal (ou prompt de comando) no local que fica seus repositórios e execute os comandos.
 
 ```bash
-mkdir ficha-cadastro
-cd ficha-cadastro
+mkdir FichaCadastroSln
+cd FichaCadastroSln
 ```
 
 ## Passo 2: Criando a `Solução` e o `Projeto`
@@ -80,6 +80,12 @@ dotnet sln FichaCadastroSln.sln add FichaCadastroAPI/FichaCadastroAPI.csproj
 </details>
 
 <details>
+    <summary>AutoMapper.Extensions.Microsoft.DependencyInjection</summary>
+    <p><a href="https://www.nuget.org/packages/AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1">Link</a></p>
+    <p>dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection --version 12.0.1</p>
+</details>
+
+<details>
     <summary>Microsoft.EntityFrameworkCore</summary>
     <p><a href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/7.0.9">Link</a></p>
     <p>dotnet add package Microsoft.EntityFrameworkCore --version 7.0.9</p>
@@ -102,6 +108,7 @@ dotnet sln FichaCadastroSln.sln add FichaCadastroAPI/FichaCadastroAPI.csproj
     <p><a href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools/7.0.9">Link</a></p>
     <p>dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.9</p>
 </details>
+
 
 <br/>
 
@@ -167,9 +174,10 @@ As tecnologias utilizadas:
 
 ![Alt text](/images/image2.png)
 
-
-* Add-Migration InitialCreate
-* Update-Database
+```
+Add-Migration InitialCreate
+Update-Database
+```
 
 ## VS Code
 
@@ -217,4 +225,3 @@ Abrir o SQL Manager para acessar o SQL Server configurado da imagem
 - Server name: `host.docker.internal,1433`
     - Quando estiver usando um ambiente de máquina virtual ou WSL (Windows Subsystem for Linux) para executar o Docker no macOS.
  
-  
