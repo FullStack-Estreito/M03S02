@@ -225,3 +225,6 @@ Abrir o SQL Manager para acessar o SQL Server configurado da imagem
 - Server name: `host.docker.internal,1433`
     - Quando estiver usando um ambiente de máquina virtual ou WSL (Windows Subsystem for Linux) para executar o Docker no macOS.
  
+
+ 
+olá mundo
