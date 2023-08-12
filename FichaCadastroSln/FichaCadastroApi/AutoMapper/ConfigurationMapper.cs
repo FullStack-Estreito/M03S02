@@ -18,7 +18,8 @@ namespace FichaCadastroApi.AutoMapper
 
             CreateMap<FichaUpdateDTO, FichaModel>();
 
-            CreateMap<DetalheModel, FichaDetalheReadDTO>();
+            CreateMap<DetalheModel, FichaDetalheReadDTO>()
+                .ForMember(dest => dest.Numero, origem => origem.MapFrom(src => src.Nota));
         }
     }
 }

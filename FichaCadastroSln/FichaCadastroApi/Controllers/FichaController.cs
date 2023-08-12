@@ -16,8 +16,7 @@ namespace FichaCadastroApi.Controllers
         private readonly ILogger<FichaController> _logger;
         private readonly FichaCadastroDbContext _fichaCadastroDbContext;
         private readonly IMapper _mapper;
-
-
+        
         public FichaController(ILogger<FichaController> logger, FichaCadastroDbContext fichaCadastroDbContext, IMapper mapper)
         {
             _logger = logger;
@@ -64,7 +63,7 @@ namespace FichaCadastroApi.Controllers
             {
                 List<FichaModel> fichaModels;
 
-                if (email.IsNullOrEmpty())
+                if (email.IsNullOrEmpty()) // email == null || email == "" 
                 {
                     fichaModels = _fichaCadastroDbContext.FichaModels
                                                          .Include(i => i.Detalhes)
@@ -73,7 +72,8 @@ namespace FichaCadastroApi.Controllers
                 else
                 {
                     fichaModels = _fichaCadastroDbContext.FichaModels
-                                                         .Where(w => w.Email.Equals(email!))
+                                                         //.Where(w => w.Email.Equals(email!))
+                                                         .Where(w => w.Email == email)
                                                          .Include(i => i.Detalhes).ToList();
                 }
 
@@ -148,6 +148,14 @@ namespace FichaCadastroApi.Controllers
         {
             try
             {
+                /*
+                 * Bug no código
+                 * Ele não está montando o relacionamento para efetuar a consulta entre Ficha e Detalhe (INNER JOIN)
+                 * SELECT * 
+                 * FROM Ficha
+                 * INNER JOIN Detalhe
+                 * WHERE Ficha.Id = 1
+                 */
                 var fichaModel = _fichaCadastroDbContext.FichaModels.Where(w => w.Id == id).FirstOrDefault();
 
                 if (fichaModel == null)

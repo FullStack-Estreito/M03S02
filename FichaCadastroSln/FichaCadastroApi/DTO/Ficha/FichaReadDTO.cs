@@ -16,7 +16,7 @@ namespace FichaCadastroApi.DTO.Ficha
 
     public class FichaDetalheReadDTO : DTOBase 
     {
-        public NotaEnum Nota { get; set; }
+        public NotaEnum Numero { get; set; }
         public string Justificativa { get; set; }
     }
 }
