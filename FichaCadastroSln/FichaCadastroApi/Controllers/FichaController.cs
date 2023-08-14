@@ -32,6 +32,8 @@ namespace FichaCadastroApi.Controllers
         {
             try
             {
+                _logger.LogInformation("Create Ficha do Mï¿½todo POST da Controller", new { email = fichaCreateDTO.EmailInformado });
+                
                 var fichaModel = _mapper.Map<FichaModel>(fichaCreateDTO);
 
                 if (_fichaCadastroDbContext.FichaModels.ToList().Exists(e => e.Email == fichaCreateDTO.EmailInformado))
@@ -98,7 +100,7 @@ namespace FichaCadastroApi.Controllers
 
                 if (fichaModel == null)
                 {
-                    return NotFound(new { erro = "Ficha não encontrada" });
+                    return NotFound(new { erro = "Ficha nï¿½o encontrada" });
                 }
 
                 var fichaReadDTO = _mapper.Map<FichaReadDTO>(fichaModel);
@@ -123,7 +125,7 @@ namespace FichaCadastroApi.Controllers
 
                 if (fichaModel == null)
                 {
-                    return NotFound(new { erro = "Registro não encontrado" });
+                    return NotFound(new { erro = "Registro nï¿½o encontrado" });
                 }
 
                 fichaModel = _mapper.Map(fichaUpdateDTO, fichaModel);
@@ -149,8 +151,8 @@ namespace FichaCadastroApi.Controllers
             try
             {
                 /*
-                 * Bug no código
-                 * Ele não está montando o relacionamento para efetuar a consulta entre Ficha e Detalhe (INNER JOIN)
+                 * Bug no cï¿½digo
+                 * Ele nï¿½o estï¿½ montando o relacionamento para efetuar a consulta entre Ficha e Detalhe (INNER JOIN)
                  * SELECT * 
                  * FROM Ficha
                  * INNER JOIN Detalhe
@@ -160,7 +162,7 @@ namespace FichaCadastroApi.Controllers
 
                 if (fichaModel == null)
                 {
-                    return NotFound(new { erro = "Registro não encontrado" });
+                    return NotFound(new { erro = "Registro nï¿½o encontrado" });
                 }
 
                 if (fichaModel.Detalhes != null && fichaModel.Detalhes!.Count > 0)

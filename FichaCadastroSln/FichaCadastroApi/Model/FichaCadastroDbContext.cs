@@ -29,7 +29,17 @@ namespace FichaCadastroApi.Model
                         .Property(p => p.DataCadastro)
                         .HasDefaultValueSql("GETDATE()");
 
-          base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<FichaModel>().HasData(new FichaModel
+            {
+                Id= 1,
+                DataCadastro = DateTime.Now,
+                DataNascimento = DateTime.Now,
+                Email = "teste@email.com.br",
+                Nome = "teste"
+            });
+            
+                base.OnModelCreating(modelBuilder);
         }
     }
 }

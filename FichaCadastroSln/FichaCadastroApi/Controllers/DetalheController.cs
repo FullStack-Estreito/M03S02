@@ -7,14 +7,20 @@ namespace FichaCadastroApi.Controllers
     [Route("api/[controller]")]
     public class DetalheController : ControllerBase
     {
-        private readonly ILogger<FichaController> _logger;
-        private readonly FichaCadastroDbContext _fichaCadastroDbContext;
+        /// <summary>
+        /// Declaração da ILogger privado e leitura injectado pelo construtor
+        /// </summary>
+        private readonly ILogger<DetalheController> _logger;
 
 
-        public DetalheController(ILogger<FichaController> logger, FichaCadastroDbContext fichaCadastroDbContext)
+        /// <summary>
+        /// Injeção do ILogger como parametro via construtor
+        /// </summary>
+        /// <param name="logger"></param>
+        public DetalheController(ILogger<DetalheController> logger)
         {
             _logger = logger;
-            _fichaCadastroDbContext = fichaCadastroDbContext;
+
         }
 
     }
