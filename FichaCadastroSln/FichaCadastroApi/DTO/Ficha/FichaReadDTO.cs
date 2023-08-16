@@ -5,7 +5,8 @@ namespace FichaCadastroApi.DTO.Ficha
 {
     public class FichaReadDTO : DTOBase 
     {
-        public string Nome { get; set; }
+        public string PrimeiroNome { get; set; }
+        public string SegundoNome { get; set; }
 
         public string Email { get; set; }
 

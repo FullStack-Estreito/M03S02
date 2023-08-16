@@ -9,6 +9,8 @@ namespace FichaCadastroApi.AutoMapper
         public ConfigurationMapper()
         {
             CreateMap<FichaModel, FichaReadDTO>()
+                 .ForMember(dest => dest.PrimeiroNome, opt => opt.MapFrom(src => src.Nome.Split(' ', StringSplitOptions.None)[0]))
+                 .ForMember(dest => dest.SegundoNome, opt => opt.MapFrom(src => src.Nome.Split(' ', StringSplitOptions.None)[1]))
                  .ForMember(dest => dest.FichaComDetalhes, opt => opt.MapFrom(src => src.Detalhes));
 
             CreateMap<FichaCreateDTO, FichaModel>()
