@@ -30,8 +30,8 @@ namespace FichaCadastroApi.HealhCheck
 
             try
             {
-                var returns = _fichaCadastroDbContext.Database.SqlQueryRaw<bool>("SELECT 1 AS HealthCheck").ToList().FirstOrDefault();
-                comunicaoSQL = returns == true;
+                var returns = _fichaCadastroDbContext.Database.SqlQueryRaw<int>("SELECT 1 AS HealthCheck").ToList().FirstOrDefault();
+                comunicaoSQL = returns == 1;
                 var dados = new { intanciaId = _fichaCadastroDbContext.ContextId.InstanceId, sqlSucesso = comunicaoSQL, connectionString = _fichaCadastroDbContext.Database.GetConnectionString() };
                 objeto.Add("informacao_db", dados);
                 healthStatus = true;

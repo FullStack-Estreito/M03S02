@@ -16,7 +16,7 @@ namespace FichaCadastroApi.Controllers
         private readonly ILogger<FichaController> _logger;
         private readonly FichaCadastroDbContext _fichaCadastroDbContext;
         private readonly IMapper _mapper;
-        
+
         public FichaController(ILogger<FichaController> logger, FichaCadastroDbContext fichaCadastroDbContext, IMapper mapper)
         {
             _logger = logger;
@@ -33,7 +33,7 @@ namespace FichaCadastroApi.Controllers
             try
             {
                 _logger.LogInformation("Create Ficha do M�todo POST da Controller", new { email = fichaCreateDTO.EmailInformado });
-                
+
                 var fichaModel = _mapper.Map<FichaModel>(fichaCreateDTO);
 
                 if (_fichaCadastroDbContext.FichaModels.ToList().Exists(e => e.Email == fichaCreateDTO.EmailInformado))
@@ -84,6 +84,7 @@ namespace FichaCadastroApi.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogTrace(ex, "OLÁ MUNDO", new { email });
                 return StatusCode(500, ex);
             }
         }
