@@ -3,7 +3,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace FichaCadastroApi.HealhCheck
+namespace FichaCadastroApi.HealthCheck
 {
     public class HealthCheckCustom : IHealthCheck
     {
@@ -40,7 +40,7 @@ namespace FichaCadastroApi.HealhCheck
             {
                 exMessage = ex;
             }
-            
+
             if (healthStatus)
             {
                 return await Task.FromResult(HealthCheckResult.Healthy("Tudo certo com a aplicação", data: objeto));

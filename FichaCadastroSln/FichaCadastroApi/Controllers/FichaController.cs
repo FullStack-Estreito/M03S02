@@ -8,7 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
 using FichaCadastroApi.Business;
 using FichaCadastroApi.Enumerators;
-using FichaCadastroApi.Singleton;
+using FichaCadastroApi.Partner.Singleton;
 
 namespace FichaCadastroApi.Controllers
 {
@@ -48,7 +48,7 @@ namespace FichaCadastroApi.Controllers
 
                 var fichaReadDTO = _mapper.Map<FichaReadDTO>(fichaModel);
 
-                MensagemSingleton singleton = MensagemSingleton.InstanciaClasseLocal();
+                ConcepcaoSingleton singleton = ConcepcaoSingleton.InstanciaClasseLocal();
                 fichaReadDTO.MensagemSingleton = singleton.Mensagem();
 
                 return StatusCode(HttpStatusCode.Created.GetHashCode(), fichaReadDTO);
@@ -85,7 +85,7 @@ namespace FichaCadastroApi.Controllers
 
                 var fichaReadDTO = _mapper.Map<List<FichaReadDTO>>(fichaModels);
 
-                MensagemSingleton singleton = MensagemSingleton.InstanciaClasseLocal();
+                ConcepcaoSingleton singleton = ConcepcaoSingleton.InstanciaClasseLocal();
                 fichaReadDTO.ForEach(s => s.MensagemSingleton = singleton.Mensagem());
 
                 return Ok(fichaReadDTO);
@@ -192,43 +192,6 @@ namespace FichaCadastroApi.Controllers
         }
 
 
-        [HttpGet("topregister/{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult GetTop2(int id)
-        {
-            try
-            {
-                var detalheModel = _fichaCadastroDbContext.DetalheModels
-                                                     .Include(w => w.Ficha)    
-                                                     .Where(w => w.Ficha.Id == id)
-                                                     .ToList();
-
-                if (detalheModel == null)
-                {
-                    detalheModel = new List<DetalheModel>()
-                    {
-                        new DetalheModel{ Id = id, Nota = NotaEnum.Cinco, Feedback = "TEXTO UM" },
-                        new DetalheModel{ Id = id, Nota = NotaEnum.Tres, Feedback = "TEXTO DOIS" },
-                        new DetalheModel{ Id = id, Nota = NotaEnum.Cinco, Feedback = "TEXTO UM" },
-                        new DetalheModel{ Id = id, Nota = NotaEnum.Cinco, Feedback = "TEXTO UM" },
-                        new DetalheModel{ Id = id, Nota = NotaEnum.Cinco, Feedback = "TEXTO UM" }
-                    };
-                }
-
-
-                Top2DetalhesSRP top2DetalhesSRP = new Top2DetalhesSRP(detalheModel);
-                top2DetalhesSRP.CalcularTopDois();
-
-                var teste = top2DetalhesSRP.ToString();
-
-                return Ok(top2DetalhesSRP);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(HttpStatusCode.InternalServerError.GetHashCode(), ex);
-            }
-        }
+        
     }
 }

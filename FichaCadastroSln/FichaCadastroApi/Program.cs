@@ -1,5 +1,6 @@
-using FichaCadastroApi.HealhCheck;
+using FichaCadastroApi.HealthCheck;
 using FichaCadastroApi.Model;
+using FichaCadastroApi.Partner.Singleton;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,9 @@ string connectionString = builder.Configuration.GetConnectionString("DefaultConn
 builder.Services.AddDbContext<FichaCadastroDbContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddAutoMapper(typeof(Program));
+
+/*Exemplo*/
+builder.Services.AddScoped<IExemploQualquerCoisa, ExemploQualquerCoisa<DetalheModel>>();
 
 builder.Services.AddRouting(options =>
 {

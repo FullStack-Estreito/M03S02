@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace FichaCadastroApi.Model
 {
     [Table("Ficha")]
-    public class FichaModel : RelacionalBase
+    public class FichaModel : RelacionalBase, IModel
     {
         [Column(TypeName = "VARCHAR"), Required, StringLength(250)]
         public string Nome { get; set; }
